@@ -6,7 +6,6 @@ module SessionsHelper
   def log_in_teacher(teacher)
     logout
     session[:teacher_id] = teacher.id
-    end
   end
 
   def log_in_student(student)
