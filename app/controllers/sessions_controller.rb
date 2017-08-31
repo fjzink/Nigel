@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
-  def new
+  def student_login
+  end
+
+  def teacher_login
   end
 
   def create
@@ -14,10 +17,10 @@ class SessionsController < ApplicationController
       log_in_student(@student)
       redirect_to student_path
   end
+end
 
   def destroy
     log_out
     redirect_to root_path
   end
-
 end

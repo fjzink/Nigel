@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :resources
   resources :teachers, only: :show
   resources :students, except: :index
+
+  get 'student_login', to: 'sessions#student_login'
 end
