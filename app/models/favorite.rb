@@ -1,5 +1,4 @@
 class Favorite < ApplicationRecord
-  belongs_to :student
-  belongs_to :teacher
-  belongs_to :resources
+  belongs_to :favoritable, polymorphic: true
+  belongs_to :resource
 end

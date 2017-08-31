@@ -1,4 +1,4 @@
 class ResourceHashtag < ApplicationRecord
-  belongs_to :hashtags
-  belongs_to :resources
+  belongs_to :hashtag
+  belongs_to :resource
 end

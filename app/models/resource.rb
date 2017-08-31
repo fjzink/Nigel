@@ -1,4 +1,4 @@
 class Resource < ApplicationRecord
-  has_many :resourcehashtags
-  has_many :hashtags, through: :resourcehashtags
+  has_many :resource_hashtags
+  has_many :hashtags, through: :resource_hashtags
 end

@@ -1,6 +1,6 @@
-class CreateResourcesHashtags < ActiveRecord::Migration[5.1]
+class CreateResourceHashtags < ActiveRecord::Migration[5.1]
   def change
-    create_table :resources_hashtags do |t|
+    create_table :resource_hashtags do |t|
       t.integer :resource_id
       t.integer :hashtag_id
 
@@ -8,3 +8,4 @@ class CreateResourcesHashtags < ActiveRecord::Migration[5.1]
     end
   end
 end
+
