@@ -19,43 +19,54 @@ class ResourcesController < ApplicationController
   end
 
   def new
-    @resource = Resource.new(resource_params)
+    if current_teacher
+      @resource = Resource.new(resource_params)
+    end
   end
 
   def create
-    @resource = @resource.new(resource_params)
-    # implement checking if the user is a teacher
+    if current_teacher
+      @resource = @resource.new(resource_params)
+      # implement checking if the user is a teacher
 
-    if @resource.save
-      redirect_to resources_path
-    else
-      render 'new'
+      if @resource.save
+        flash[:success] = "Resource created!"
+        redirect_to resources_path
+      else
+        flash[:errors] = @resource.errors.full_messages
+        render 'new'
+      end
     end
   end
 
   def edit
-    # implement checking if the user is a teacher
-    @resource = Resource.find_by(id: params[:id])
+    if current_teacher
+      @resource = Resource.find_by(id: params[:id])
+    end
   end
 
   def update
-    # implement checking if the user is a teacher
-    @resource = Resource.find_by(id: params[:id])
-    @resource.assign_attributes(resource_params)
+    if current_teacher
+      @resource = Resource.find_by(id: params[:id])
+      @resource.assign_attributes(resource_params)
 
-    if @resource.save
-      redirect_to resources_path
-    else
-      render 'edit'
+      if @resource.save
+        flash[:success] = "Resource updated!"
+        redirect_to resources_path
+      else
+        flash[:errors] = @resource.errors.full_messages
+        render 'edit'
+      end
     end
   end
 
   def destroy
-    # implement checking if the user is a teacher
-    @resource = Resource.find_by(id: params[:id])
-    @resource.destroy
-
-    redirect_to resources_path
+    if current_teacher
+      @resource = Resource.find_by(id: params[:id])
+      @resource.destroy
+      flash[:success] = "Resource deleted!"
+      redirect_to resources_path
+    end
   end
 
   private
