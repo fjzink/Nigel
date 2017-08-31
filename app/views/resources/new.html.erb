@@ -1,0 +1,14 @@
+<h1> Create a new resource </h1>
+
+<% if @resource.errors.any? %>
+  <ul>
+    <% @resource.errors.full_messages.each do |msg| %>
+    <li> <%= msg %> </li>
+  </ul>
+<% end %>
+
+<%= form_for(@resource) do |f| %>
+  Title: <%= f.text_field :title %>
+  Content: <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>

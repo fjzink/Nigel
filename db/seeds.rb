@@ -1,4 +1,3 @@
-
 Student.delete_all
 Teacher.delete_all
 Favorite.delete_all
@@ -14,4 +13,3 @@ Favorite.create(resource_id: 1, favoritable_id: 1, favoritable_type: "Student")
 Favorite.create(resource_id: 2, favoritable_id: 1, favoritable_type: "Teacher")
 Hashtag.create(tag: "#something")
 ResourceHashtag.create(resource_id: 1, hashtag_id: 1)
-
