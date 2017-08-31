@@ -1,0 +1,12 @@
+<h1> <%= @resource.title %> </h1>
+
+<%= @resource.content %>
+
+<!-- add correct logic for teacher users seeing edit and delete buttons -->
+<!-- 
+<% if session[:id] == @resource.teacher_id %>
+  <%= link_to 'edit', edit_resource(@resource) %>
+
+  <%= link_to 'delete', [@resource], method: :delete %>
+<% end %>
+ -->
