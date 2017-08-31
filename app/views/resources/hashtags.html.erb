@@ -1,0 +1,15 @@
+<h1> Educational Resources </h1>
+
+<!-- how will we input search bar? -->
+
+<ul>
+<% @resources.each do |resource| %>
+  <li> <%= link_to resource.title, resource_path(resource) %> </li>
+  <%= render_with_hashtags(resource.content) %>  
+  <!-- is line above supposed to be laid out like this? -->
+  <!-- is resource.content right or is supposed to be resource.body like in the video? -->
+  <!-- video: 13:12 -->
+<% end %>
+</ul>
+
+<!-- Video copy and pasted same code from index.html.erb -->
