@@ -1,13 +1,11 @@
 class TeachersController < ApplicationController
-
-  def new
-  end
-
   def show
-    current_user
+    current_teacher
   end
 
-  def create
+  private
 
+  def teacher_params
+    params.require(:teacher).permit(:username, :email, :password)
   end
 end

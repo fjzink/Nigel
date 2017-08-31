@@ -4,7 +4,13 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new(student_params)
+    student = Student.new(student_params)
+    if student.save
+      redirect_to root_path
+    else
+      flash[:error] = student.errors.full_messages
+      render new_student_path
+    end
   end
 
   def show
@@ -13,9 +19,15 @@ class StudentsController < ApplicationController
   def edit
   end
 
+  def update
+  end
+
+  def destroy
+  end
+
   private
 
   def student_params
-    params.require(:student).permit()
+    params.require(:student).permit(:username, :email, :password)
   end
 end
