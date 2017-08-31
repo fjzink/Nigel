@@ -1,0 +1,7 @@
+<h1> Edit your resource </h1>
+
+<%= form_for(@resource) do |f| %>
+  Title: <%= f.text_field :title %>
+  Content: <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>
