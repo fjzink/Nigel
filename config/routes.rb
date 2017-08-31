@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :students, except: :index
 
   get 'student_login', to: 'sessions#student_login'
+  get 'teacher_login', to: 'sessions#teacher_login'
 end
