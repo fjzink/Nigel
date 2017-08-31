@@ -1,13 +1,23 @@
 <h1> Educational Resources </h1>
 
 <!-- how will we input search bar? -->
+<div class="search-bar">
+<%= form_tag(resources_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Topics" %>
+  <%= submit_tag "Search!", :title => nil %>
+  <% end %>
+
+  <% if @resources.blank? %>
+    <h4> There are no resources containing your search <%= params[:search] %>.</h4>
+  <% end %>
+</div>
 
 <ul>
 <% @resources.each do |resource| %>
-  <li> <%= link_to resource.title, resource_path(resource) %> </li>
-  <%= render_with_hashtags(resource.content) %>  
-  <!-- is line above supposed to be laid out like this? -->
-  <!-- is resource.content right or is supposed to be resource.body like in the video? -->
+  <div class="each-resource-displayed">
+    <li> <%= link_to resource.title, resource_path(resource) %> </li>
+    <%= render_with_hashtags(resource.content) %>
+  </div>
   <!-- video: 13:12 -->
 <% end %>
 </ul>
