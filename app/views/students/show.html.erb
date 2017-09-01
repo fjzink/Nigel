@@ -1,5 +1,7 @@
 <h1>Welcome <%= current_student.username.capitalize %></h1>
 
+<h3>Your favorited resources: </h3>
+
 <% if current_student %>
   <ul>
     <% current_student.favorited_resources.each do |favorite| %>
