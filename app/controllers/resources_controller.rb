@@ -69,17 +69,14 @@ class ResourcesController < ApplicationController
     end
   end
 
-  def create_favorite
+  def favorite
     if current_student
-      @student = Student.find(session[:id])  # keep track of the session[:id] /student or teacher
-      @resource = Resource.find(params[:id])
-      @favorite = Favorite.new(resource_id: @resource.id, favoritable_id: @student.id, favoritable_type: "student")
-      redirect_to resources_path
+      current_student.favorited_resources << @resource
+      redirect_to :back, notice: 'You favorited #{current_student.username}'
     elsif current_teacher
-      @teacher = Teacher.find(session[:id])
-      @resource = Resource.find(params[:id]) # make sure to get the right resource
-      @favorite = Favorite.new(resource_id: @resource.id, favoritable_id: @teacher.id, favoritable_type: "teacher")
-      redirect_to resources_path
+
+      current_teacher.favorited_resources << @resource
+      redirect_to :back, notice: 'You favorited #{current_teacher.username}'
     end
   end
 
