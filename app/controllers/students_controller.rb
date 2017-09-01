@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  include SessionsHelper
+
   def new
     @student = Student.new
   end

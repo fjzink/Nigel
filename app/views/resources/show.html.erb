@@ -7,5 +7,4 @@
 
   <%= link_to 'delete', [@resource], method: :delete %>
 
-  <%= link_to 'favorite', [@resource] %>
-
+  <%= link_to 'favorite', favorite_path(@resource), method: :post %>
