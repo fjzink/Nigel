@@ -7,8 +7,11 @@
   </ul>
 <% end %>
 
-<%= form_for(@resource) do |f| %>
-  Title: <%= f.text_field :title %>
-  Content: <%= f.text_field :content %>
-  <%= f.submit %>
-<% end %>
+<div>
+  <%= form_for(@resource) do |f| %>
+    Title:   <%= f.text_field :title %>
+    Content: <%= f.text_field :content %>
+    Link:    <%= f.text_field :link %>
+             <%= f.submit %>
+  <% end %>
+</div>
