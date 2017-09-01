@@ -1,23 +1,35 @@
 class SessionsController < ApplicationController
+  include SessionsHelper
 
   def student_login
+
   end
 
   def teacher_login
+
   end
 
-  def create
-    @teacher = Teacher.find_by(email: params[:session][:email].downcase)
-    @student = Student.find_by(email: params[:session][:email].downcase)
-    if @teacher && @teacher.authenticate(params[:session][:password])
+  def teacher_create
+    @teacher = Teacher.find_by(email: params[:email].downcase)
+    if @teacher && @teacher.authenticate(params[:password])
       log_in_teacher(@teacher)
-      redirect_to teacher_path
+      redirect_to root_path
     else
-      @student && @student.authenticate(params[:session][:password])
-      log_in_student(@student)
-      redirect_to student_path
+      flash[:error] = @teacher.errors.full_messages
+      render teacher_login_path
+    end
   end
-end
+
+  def student_create
+    @student = Student.find_by(email: params[:email].downcase)
+    if @student && @student.authenticate(params[:password])
+      log_in_student(@student)
+      redirect_to root_path
+    else
+      flash[:error] = @student.errors.full_messages
+      render student_login_path
+    end
+  end
 
   def destroy
     log_out

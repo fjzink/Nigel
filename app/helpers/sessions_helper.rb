@@ -1,20 +1,20 @@
 module SessionsHelper
   def log_in_teacher(teacher)
-    logout
+    # logout
     session[:teacher_id] = teacher.id
   end
 
   def log_in_student(student)
-    logout
+    # logout
     session[:student_id] = student.id
   end
 
   def current_student
-    @student ||= Student.find(session[:student_id])
+    Student.find_by(id: session[:student_id])
   end
 
   def current_teacher
-    @teacher ||= Teacher.find(session[:teacher_id])
+    Teacher.find_by(id: session[:teacher_id])
   end
 
   def student_logged_in?

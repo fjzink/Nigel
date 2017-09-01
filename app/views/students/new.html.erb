@@ -1,7 +1,6 @@
 <h1>Student Registration</h1>
 
 <%= form_with(model: @student, local: true) do |f| %>
-  <%= render '/shared/student_error_messages', object: @student %>
 
   <%= f.label :username %>
   <%= f.text_field :username, class: 'form-control' %>

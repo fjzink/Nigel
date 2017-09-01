@@ -2,7 +2,7 @@ class Resource < ApplicationRecord
   has_many :resource_hashtags
   has_many :hashtags, through: :resource_hashtags
 
-  validates :title, :content, presence: true
+  validates :title, :content, :link, presence: true
 
   def self.search(search)
     where("title LIKE ? OR content LIKE ?", "%#{search}%", "%#{search}%")
