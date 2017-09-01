@@ -1,0 +1,9 @@
+<h1>Welcome current_teacher.username</h1>
+
+<% if current_teacher %>
+  <%= current_teacher.favorited_resources.each do |favaorite| %>
+    <ul>
+      <li><%= favorite %></li>
+    </ul>
+  <% end %>
+<% end %>
