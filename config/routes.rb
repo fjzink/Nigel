@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   post 'sessions/student', to: 'sessions#student_create', as: :authenticate_student
   delete 'logout', to: 'sessions#destroy'
 
+  post '/resources/favorite/:id', to: 'resources#favorite', as: :favorite
 end

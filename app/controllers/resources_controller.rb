@@ -1,4 +1,6 @@
+
 class ResourcesController < ApplicationController
+  include SessionsHelper
 
   def index
     @resources = Resource.all
@@ -71,12 +73,13 @@ class ResourcesController < ApplicationController
 
   def favorite
     if current_student
-      current_student.favorited_resources << @resource
-      redirect_to :back, notice: 'You favorited #{current_student.username}'
+      @resource = Resource.find_by(id: params[:id])
+      current_student.favorited_resources << @resource if !current_student.favorited_resources.include?(@resource)
+      redirect_to current_student, notice: 'You favorited #{current_student.username}'
     elsif current_teacher
-
-      current_teacher.favorited_resources << @resource
-      redirect_to :back, notice: 'You favorited #{current_teacher.username}'
+      @resource = Resource.find_by(id: params[:id])
+      current_teacher.favorited_resources << @resource if !current_teacher.favorited_resources.include?(@resource)
+      redirect_to current_teacher, notice: 'You favorited #{current_teacher.username}'
     end
   end
 
