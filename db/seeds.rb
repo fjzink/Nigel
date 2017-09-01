@@ -13,3 +13,16 @@ Favorite.create(resource_id: 1, favoritable_id: 1, favoritable_type: "Student")
 Favorite.create(resource_id: 2, favoritable_id: 1, favoritable_type: "Teacher")
 Hashtag.create(tag: "#something")
 ResourceHashtag.create(resource_id: 1, hashtag_id: 1)
+
+    <%= link_to "Home", root_path %>
+    <% if teacher_logged_in? %>
+      <%= link_to current_teacher.username, teacher_path(current_teacher) %>
+      <%= link_to "Log out", logout_path, method: :delete %>
+    <% elsif student_logged_in? %>
+      <%= link_to current_student.username, student_path(current_student) %>
+      <%= link_to "Log out", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to "Register new student", new_student_path %>
+      <%= link_to "Log in as a teacher", teacher_login_path %>
+      <%= link_to "Log in as a student", student_login_path %>
+    <% end %>
