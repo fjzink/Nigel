@@ -11,4 +11,9 @@ Rails.application.routes.draw do
 
   get 'student_login', to: 'sessions#student_login'
   get 'teacher_login', to: 'sessions#teacher_login'
+
+  post 'sessions/teacher', to: 'sessions#teacher_create', as: :authenticate_teacher
+  post 'sessions/student', to: 'sessions#student_create', as: :authenticate_student
+  delete 'logout', to: 'sessions#destroy'
+
 end
