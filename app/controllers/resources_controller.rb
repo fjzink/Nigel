@@ -22,13 +22,13 @@ class ResourcesController < ApplicationController
 
   def new
     if current_teacher
-      @resource = Resource.new(resource_params)
+      @resource = Resource.new
     end
   end
 
   def create
     if current_teacher
-      @resource = @resource.new(resource_params)
+      @resource = Resource.new(resource_params)
       # implement checking if the user is a teacher
 
       if @resource.save
@@ -86,6 +86,6 @@ class ResourcesController < ApplicationController
   private
 
   def resource_params
-    params.require(:resource).permit(:title, :content)
+    params.require(:resource).permit(:title, :content, :link)
   end
 end
