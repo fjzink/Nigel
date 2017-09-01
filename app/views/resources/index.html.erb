@@ -19,6 +19,14 @@
   <br>
   <br>
   <div>
+    <% if teacher_logged_in? %>
+      <h4>Create a new resource:</h4>
+      <%= link_to "New Resource", new_resource_path %>
+    <% end %>
+  <br>
+  <br>
+  <br>
+  <h4>Available Resources:</h4>
     <ul>
     <% @resources.each do |resource| %>
       <div class="each-resource-displayed">
