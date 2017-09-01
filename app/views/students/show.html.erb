@@ -1,9 +1,9 @@
-<h1>Welcome current_student.username</h1>
+<h1>Welcome <%= current_student.username.capitalize %></h1>
 
 <% if current_student %>
-  <%= current_student.favorited_resources.each do |favaorite| %>
-    <ul>
-      <li><%= favorite %></li>
-    </ul>
-  <% end %>
+  <ul>
+    <% current_student.favorited_resources.each do |favorite| %>
+      <li><%= link_to favorite.title, favorite.link, target: '_blank' %></li>
+    <% end %>
+  </ul>
 <% end %>
