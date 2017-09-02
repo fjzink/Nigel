@@ -1,4 +1,4 @@
-<h1> Educational Resources </h1>
+<h1> Search Resources </h1>
 
 <!-- how will we input search bar? -->
 <div class="row">
@@ -29,6 +29,7 @@
   <h4>Available Resources:</h4>
     <ul>
     <% @resources.each do |resource| %>
+    <br>
       <div class="each-resource-displayed">
         <li> <%= link_to resource.title, resource_path(resource) %> </li>
         <%= render_with_hashtags(resource.content) %>
