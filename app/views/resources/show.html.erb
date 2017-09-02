@@ -3,7 +3,7 @@
 <%= @resource.content %>
 <%= link_to 'favorite', favorite_path(@resource), method: :post %>
 
-<!-- add correct logic for teacher users seeing edit and delete buttons -->
+
 <% if current_teacher %>
   <%= link_to 'edit', edit_resource_path(@resource) %>
 
