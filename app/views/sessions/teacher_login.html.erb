@@ -3,7 +3,7 @@
 <h2>Please log in below</h2>
 <div class='row'>
   <div class='col-md-6 col-md-offset-3'>
-  <%= render partial: "shared/teacher_login", layout: false, locals: {teacher: @teacher} %>
+  <%= render partial: "shared/errors", locals: {errors: @errors} %>
     <%= form_tag(authenticate_teacher_path, method: 'post') do %>
       <%= label_tag :email %>
       <%= email_field_tag :email, nil, class: 'form-control' %>

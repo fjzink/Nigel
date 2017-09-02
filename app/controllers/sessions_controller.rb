@@ -15,8 +15,8 @@ class SessionsController < ApplicationController
       log_in_teacher(@teacher)
       redirect_to root_path
     else
-      flash[:error] = @teacher.errors.full_messages
-      render teacher_login_path
+      @errors = ["Invalid email/password."]
+      render :teacher_login
     end
   end
 
@@ -26,8 +26,8 @@ class SessionsController < ApplicationController
       log_in_student(@student)
       redirect_to root_path
     else
-      flash[:error] = @student.errors.full_messages
-      render student_login_path
+      @errors = ["Invalid email/password."]
+      render :student_login
     end
   end
 
