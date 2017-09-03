@@ -147,3 +147,32 @@ $state-danger-text: red;
     color: $state-danger-text;
   }
 }
+
+img {
+  display: block;
+  width: 80%;
+  height: 10%;
+  margin: 10vh auto;
+
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 20%;
+  padding-left: 40px; 
+  font-style: black;
+  a:hover,a:visited { color:#000; }
+  a { 
+    height: 1em;
+    border-right: 50px;
+    margin-left: 3px;
+  }
+
+}
+
+
+#logo {
+  justify-content: flex-first;
+}
