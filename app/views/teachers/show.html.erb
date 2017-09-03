@@ -1,13 +1,13 @@
-<h1>Welcome <%= current_teacher.username.capitalize %></h1>
+<h1>Hello, <%= current_teacher.username.capitalize %></h1>
 
-<h3>Your favorited resources: </h3>
-<br>
-<br>
+<div id="favoritedresources">
+<h3>Favorited resources: </h3>
 <% if current_teacher %>
   <ul>
     <% current_teacher.favorited_resources.each do |favorite| %>
-      <li><%= link_to favorite.title, favorite.link, target: '_blank' %></li>
+      <li><h3><%= link_to favorite.title, favorite.link, target: '_blank' %></h3></li>
       <br>
     <% end %>
   </ul>
 <% end %>
+</div>
