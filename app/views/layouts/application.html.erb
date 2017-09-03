@@ -25,9 +25,9 @@
           <%= link_to current_student.username, student_path(current_student) %>
           <%= link_to "Log out", logout_path, method: :delete %>
         <% else %>
-          <%= link_to "Register", new_student_path %>
-          <%= link_to "Teacher Login", teacher_login_path %>
+          <%= link_to "Sign up", new_student_path %>
           <%= link_to "Student Login", student_login_path %>
+          <%= link_to "Teacher Login", teacher_login_path %>
         <% end %>
       </div>
     </div>
