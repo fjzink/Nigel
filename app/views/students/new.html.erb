@@ -1,5 +1,5 @@
 <% provide(:title, 'Register') %>
-
+<div class='col-md-6 col-md-offset-3'>
 <h1>Student Registration</h1>
 <%= render partial: "shared/errors", locals: {errors: @errors} %>
 
@@ -20,3 +20,4 @@
   <%= f.submit yield(:title), class: 'btn btn-primary' %>
 
 <% end %>
+</div>
