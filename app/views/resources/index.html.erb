@@ -31,18 +31,17 @@
 
   <div id="searchcontent">
     <% if teacher_logged_in? %>
-      <h4>Create a new resource:</h4>
-      <%= link_to "New Resource", new_resource_path %>
-      <br>
+      <!-- <h4>Create a new resource:</h4> -->
+      <h4><%= link_to "Create resource", new_resource_path %></h4>
     <% end %>
   <br>
-  <!-- <br> -->
+  
     <h4>Available Resources:</h4>
       <ul>
       <% @resources.each do |resource| %>
-      <br>
+      <hr>
         <div class="each-resource-displayed">
-          <li> <%= link_to resource.title, resource_path(resource) %> </li>
+          <li> <h4><%= link_to resource.title, resource_path(resource) %> </h4></li>
           <%= render_with_hashtags(resource.content) %>
         </div>
         <!-- video: 13:12 -->
