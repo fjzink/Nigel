@@ -283,26 +283,14 @@ Resource.create(title: "Learn Sinatra", content: "We'll introduce you to the con
   THE SINATRA DSL
   Any application that requires the sinatra library will get access to methods like: get and post. These methods provide the ability to instantly transform a Ruby application into an application that can respond to HTTP requests.", link: "https://learn.co/lessons/what-is-sinatra")
 
-Favorite.create(resource_id: Resource.first.id, favoritable_id: Student.first.id, favoritable_type: "Student")
-Favorite.create(resource_id: Resource.second.id, favoritable_id: Student.first.id, favoritable_type: "Student")
-Favorite.create(resource_id: Resource.third.id, favoritable_id: Student.first.id, favoritable_type: "Student")
-Favorite.create(resource_id: Resource.fourth.id, favoritable_id: Student.first.id, favoritable_type: "Student")
-Favorite.create(resource_id: Resource.sixth.id, favoritable_id: Student.first.id, favoritable_type: "Student")
-Favorite.create(resource_id: Resource.tenth.id, favoritable_id: Student.first.id, favoritable_type: "Student")
-Favorite.create(resource_id: Resource.fifth.id, favoritable_id: Student.first.id, favoritable_type: "Student")
-Favorite.create(resource_id: Resource.seventh.id, favoritable_id: Student.first.id, favoritable_type: "Student")
+resources = Resource.all 
+10.times do |i| 
+  Favorite.create(resource_id: resources[i].id, favoritable_id: Student.first.id, favoritable_type: "Student")
+end
 
-
-Favorite.create(resource_id: Resource.last.id, favoritable_id: Teacher.first.id, favoritable_type: "Teacher")
-Favorite.create(resource_id: Resource.first.id, favoritable_id: Teacher.first.id, favoritable_type: "Teacher")
-Favorite.create(resource_id: Resource.second.id, favoritable_id: Teacher.first.id, favoritable_type: "Teacher")
-Favorite.create(resource_id: Resource.third.id, favoritable_id: Teacher.first.id, favoritable_type: "Teacher")
-Favorite.create(resource_id: Resource.fourth.id, favoritable_id: Teacher.first.id, favoritable_type: "Teacher")
-Favorite.create(resource_id: Resource.fifth.id, favoritable_id: Teacher.first.id, favoritable_type: "Teacher")
-Favorite.create(resource_id: Resource.sixth.id, favoritable_id: Teacher.first.id, favoritable_type: "Teacher")
-Favorite.create(resource_id: Resource.seventh.id, favoritable_id: Teacher.first.id, favoritable_type: "Teacher")
-Favorite.create(resource_id: Resource.tenth.id, favoritable_id: Teacher.first.id, favoritable_type: "Teacher")
-
+10.times do |i| 
+  Favorite.create(resource_id: resources[i].id, favoritable_id: Teacher.first.id, favoritable_type: "Teacher")
+end
 
 Hashtag.create(tag: "#something")
 ResourceHashtag.create(resource_id: Resource.last.id, hashtag_id: Hashtag.last)

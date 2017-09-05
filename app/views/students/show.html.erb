@@ -1,5 +1,6 @@
 <h1>Welcome, <%= current_student.username.capitalize %></h1>
 
+<div id="favoritedresources">
 <h3>Your favorited resources: </h3>
 
 <% if current_student %>
@@ -9,3 +10,4 @@
     <% end %>
   </ul>
 <% end %>
+</div>
