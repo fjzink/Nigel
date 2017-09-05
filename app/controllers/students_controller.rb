@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
     if student.save
       redirect_to root_path
     else
-      flash[:error] = student.errors.full_messages
+      @errors = student.errors.full_messages
       render new_student_path
     end
   end

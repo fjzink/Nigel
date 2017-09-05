@@ -5,7 +5,7 @@ class Resource < ApplicationRecord
   validates :title, :content, :link, presence: true
 
   def self.search(search)
-    where("title LIKE ? OR content LIKE ?", "%#{search}%", "%#{search}%")
+    where("lower(title) LIKE lower(?) OR lower(content) LIKE lower(?)", "%#{search}%", "%#{search}%")
   end
 
   after_create do

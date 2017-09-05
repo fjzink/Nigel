@@ -1,4 +1,11 @@
-<h1>Student Registration</h1>
+<% provide(:title, 'Register') %>
+<div class='col-md-6 col-md-offset-3'>
+<h2>Gain access to 100+ resources
+<br>
+<br>
+Get started, it's free.
+</h2>
+<%= render partial: "shared/errors", locals: {errors: @errors} %>
 
 <%= form_with(model: @student, local: true) do |f| %>
 
@@ -14,6 +21,7 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-  <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
+  <%= f.submit yield(:title), class: 'btn btn-primary' %>
 
 <% end %>
+</div>
